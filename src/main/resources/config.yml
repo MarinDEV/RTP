@@ -1,0 +1,36 @@
+spawn: world:100:70:100  #Format: world:x:y:z
+spawn-radius: 5000 #To ensure that the teleport location is outside of spawn.
+main-search-radius: 7000
+side-search-radius: 500
+tries: 5 #How many times should the server try to find a safe location before it tells the player: Could'nt find a safe location.
+teleport-delay: 5 #Teleportation delay in seconds, after the location has been found.
+player-prevented-range: 100
+player-search-range: 500
+cache-time: 10 #minutes
+rtp-delay: 5
+
+spawn-point-1:
+  - world:0:100:0
+  - world:100:0:100
+spawn-point-2:
+  - world:0:100:0
+  - world:100:0:100
+
+#MESSAGES
+no-permission-message: "You don't have permission to perform this command!"
+delay-message: "You have to wait until you can use this command again"
+searching-message: "Searching for a location"
+no-free-spot-message: "Couldn't find a safe location"
+teleporting-message: "Found a location. Teleporting in <time> seconds"
+config-reloaded-message: "The config.yml file has been reloaded"
+no-requests-message: "You don't have any rtp requests"
+accept-usage-message: "/rtp accept or /rtp accept [player]"
+player-not-found-message: "Player <player> couldn't be found"
+player-not-requested-message: "<player> has not requested to rtp to you"
+already-requested-message: "You already requested to /rtp to <player>"
+target-request-message: "<player> has requested to rtp to you. /rtp accept"
+sender-request-message: "You have requested to tp to <player>"
+cannot-tp-to-self-message: "You cannot rtp to yourself"
+accepted-message-teleporting: "<player> has accepted your rtp request."
+accepted-message-target: "<player> is teleporting close to you."
+command-not-allowed: "<command> is not allowed here"

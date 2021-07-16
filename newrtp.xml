@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="newrtp" default="all">
+  
+  
+  <property file="newrtp.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ear"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.klib"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.9" value="${jdk.home.9}/bin"/>
+  <path id="jdk.classpath.9">
+    <fileset dir="${jdk.home.9}">
+      <include name="../Home!/java.activation"/>
+      <include name="../Home!/java.base"/>
+      <include name="../Home!/java.compiler"/>
+      <include name="../Home!/java.corba"/>
+      <include name="../Home!/java.datatransfer"/>
+      <include name="../Home!/java.desktop"/>
+      <include name="../Home!/java.instrument"/>
+      <include name="../Home!/java.jnlp"/>
+      <include name="../Home!/java.logging"/>
+      <include name="../Home!/java.management"/>
+      <include name="../Home!/java.management.rmi"/>
+      <include name="../Home!/java.naming"/>
+      <include name="../Home!/java.prefs"/>
+      <include name="../Home!/java.rmi"/>
+      <include name="../Home!/java.scripting"/>
+      <include name="../Home!/java.se"/>
+      <include name="../Home!/java.se.ee"/>
+      <include name="../Home!/java.security.jgss"/>
+      <include name="../Home!/java.security.sasl"/>
+      <include name="../Home!/java.smartcardio"/>
+      <include name="../Home!/java.sql"/>
+      <include name="../Home!/java.sql.rowset"/>
+      <include name="../Home!/java.transaction"/>
+      <include name="../Home!/java.xml"/>
+      <include name="../Home!/java.xml.bind"/>
+      <include name="../Home!/java.xml.crypto"/>
+      <include name="../Home!/java.xml.ws"/>
+      <include name="../Home!/java.xml.ws.annotation"/>
+      <include name="../Home!/javafx.base"/>
+      <include name="../Home!/javafx.controls"/>
+      <include name="../Home!/javafx.deploy"/>
+      <include name="../Home!/javafx.fxml"/>
+      <include name="../Home!/javafx.graphics"/>
+      <include name="../Home!/javafx.media"/>
+      <include name="../Home!/javafx.swing"/>
+      <include name="../Home!/javafx.web"/>
+      <include name="../Home!/jdk.accessibility"/>
+      <include name="../Home!/jdk.attach"/>
+      <include name="../Home!/jdk.charsets"/>
+      <include name="../Home!/jdk.compiler"/>
+      <include name="../Home!/jdk.crypto.cryptoki"/>
+      <include name="../Home!/jdk.crypto.ec"/>
+      <include name="../Home!/jdk.deploy"/>
+      <include name="../Home!/jdk.deploy.controlpanel"/>
+      <include name="../Home!/jdk.dynalink"/>
+      <include name="../Home!/jdk.editpad"/>
+      <include name="../Home!/jdk.hotspot.agent"/>
+      <include name="../Home!/jdk.httpserver"/>
+      <include name="../Home!/jdk.incubator.httpclient"/>
+      <include name="../Home!/jdk.internal.ed"/>
+      <include name="../Home!/jdk.internal.jvmstat"/>
+      <include name="../Home!/jdk.internal.le"/>
+      <include name="../Home!/jdk.internal.opt"/>
+      <include name="../Home!/jdk.internal.vm.ci"/>
+      <include name="../Home!/jdk.jartool"/>
+      <include name="../Home!/jdk.javadoc"/>
+      <include name="../Home!/jdk.javaws"/>
+      <include name="../Home!/jdk.jcmd"/>
+      <include name="../Home!/jdk.jconsole"/>
+      <include name="../Home!/jdk.jdeps"/>
+      <include name="../Home!/jdk.jdi"/>
+      <include name="../Home!/jdk.jdwp.agent"/>
+      <include name="../Home!/jdk.jfr"/>
+      <include name="../Home!/jdk.jlink"/>
+      <include name="../Home!/jdk.jshell"/>
+      <include name="../Home!/jdk.jsobject"/>
+      <include name="../Home!/jdk.jstatd"/>
+      <include name="../Home!/jdk.localedata"/>
+      <include name="../Home!/jdk.management"/>
+      <include name="../Home!/jdk.management.agent"/>
+      <include name="../Home!/jdk.management.cmm"/>
+      <include name="../Home!/jdk.management.jfr"/>
+      <include name="../Home!/jdk.management.resource"/>
+      <include name="../Home!/jdk.naming.dns"/>
+      <include name="../Home!/jdk.naming.rmi"/>
+      <include name="../Home!/jdk.net"/>
+      <include name="../Home!/jdk.pack"/>
+      <include name="../Home!/jdk.packager"/>
+      <include name="../Home!/jdk.packager.services"/>
+      <include name="../Home!/jdk.plugin"/>
+      <include name="../Home!/jdk.plugin.dom"/>
+      <include name="../Home!/jdk.plugin.server"/>
+      <include name="../Home!/jdk.policytool"/>
+      <include name="../Home!/jdk.rmic"/>
+      <include name="../Home!/jdk.scripting.nashorn"/>
+      <include name="../Home!/jdk.scripting.nashorn.shell"/>
+      <include name="../Home!/jdk.sctp"/>
+      <include name="../Home!/jdk.security.auth"/>
+      <include name="../Home!/jdk.security.jgss"/>
+      <include name="../Home!/jdk.snmp"/>
+      <include name="../Home!/jdk.unsupported"/>
+      <include name="../Home!/jdk.xml.bind"/>
+      <include name="../Home!/jdk.xml.dom"/>
+      <include name="../Home!/jdk.xml.ws"/>
+      <include name="../Home!/jdk.zipfs"/>
+      <include name="../Home!/oracle.desktop"/>
+      <include name="../Home!/oracle.net"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.9}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.9}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.9"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.maven:_com.destroystokyo.paper:paper-api:1.15.2-r0.1-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/destroystokyo/paper/paper-api/1.15.2-R0.1-SNAPSHOT/paper-api-1.15.2-R0.1-20200413.075030-115.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.google.code.gson:gson:2.8.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/google/code/gson/gson/2.8.0/gson-2.8.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.google.guava:guava:21.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/google/guava/guava/21.0/guava-21.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.googlecode.json-simple:json-simple:1.1.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sk89q.intake:intake:4.2-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sk89q/intake/intake/4.2-SNAPSHOT/intake-4.2-SNAPSHOT.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sk89q.worldedit.worldedit-libs:bukkit:7.0.0-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sk89q/worldedit/worldedit-libs/bukkit/7.0.0-SNAPSHOT/bukkit-7.0.0-SNAPSHOT.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sk89q.worldedit.worldedit-libs:core:7.0.0-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sk89q/worldedit/worldedit-libs/core/7.0.0-SNAPSHOT/core-7.0.0-SNAPSHOT.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sk89q.worldedit:worldedit-bukkit:7.0.0-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sk89q/worldedit/worldedit-bukkit/7.0.0-SNAPSHOT/worldedit-bukkit-7.0.0-SNAPSHOT.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sk89q.worldedit:worldedit-core:7.0.0-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sk89q/worldedit/worldedit-core/7.0.0-SNAPSHOT/worldedit-core-7.0.0-SNAPSHOT.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sk89q.worldguard:worldguard-bukkit:7.0.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sk89q/worldguard/worldguard-bukkit/7.0.0/worldguard-bukkit-7.0.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sk89q.worldguard:worldguard-core:7.0.0-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sk89q/worldguard/worldguard-core/7.0.0-SNAPSHOT/worldguard-core-7.0.0-SNAPSHOT.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sk89q:squirrelid:0.2.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sk89q/squirrelid/0.2.0/squirrelid-0.2.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_commons-lang:commons-lang:2.6.classpath">
+    <pathelement location="${path.variable.maven_repository}/commons-lang/commons-lang/2.6/commons-lang-2.6.jar"/>
+  </path>
+  
+  <path id="library.maven:_de.schlichtherle:truezip:6.8.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/de/schlichtherle/truezip/6.8.3/truezip-6.8.3.jar"/>
+  </path>
+  
+  <path id="library.maven:_io.papermc:paperlib:1.0.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/io/papermc/paperlib/1.0.2/paperlib-1.0.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_junit:junit:4.10.classpath">
+    <pathelement location="${path.variable.maven_repository}/junit/junit/4.10/junit-4.10.jar"/>
+  </path>
+  
+  <path id="library.maven:_net.md-5:bungeecord-chat:1.15-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/net/md-5/bungeecord-chat/1.15-SNAPSHOT/bungeecord-chat-1.15-20200325.072212-62.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.logging.log4j:log4j-api:2.8.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/logging/log4j/log4j-api/2.8.1/log4j-api-2.8.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.logging.log4j:log4j-slf4j-impl:2.8.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/logging/log4j/log4j-slf4j-impl/2.8.1/log4j-slf4j-impl-2.8.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.bstats:bstats-bukkit:1.4.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/bstats/bstats-bukkit/1.4/bstats-bukkit-1.4.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.bukkit:bukkit:1.13.2-r0.1-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/bukkit/bukkit/1.13.2-R0.1-SNAPSHOT/bukkit-1.13.2-R0.1-SNAPSHOT.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.flywaydb:flyway-core:3.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/flywaydb/flyway-core/3.0/flyway-core-3.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.hamcrest:hamcrest-core:1.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.khelekore:prtree:1.5.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/khelekore/prtree/1.5.0/prtree-1.5.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.ow2.asm:asm-analysis:7.3.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/ow2/asm/asm-analysis/7.3.1/asm-analysis-7.3.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.ow2.asm:asm-commons:7.3.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/ow2/asm/asm-commons/7.3.1/asm-commons-7.3.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.ow2.asm:asm-tree:7.3.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/ow2/asm/asm-tree/7.3.1/asm-tree-7.3.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.ow2.asm:asm:7.3.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/ow2/asm/asm/7.3.1/asm-7.3.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.yaml:snakeyaml:1.25.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/yaml/snakeyaml/1.25/snakeyaml-1.25.jar"/>
+  </path>
+  
+  <path id="library.maven:_rhino:js:1.7r2.classpath">
+    <pathelement location="${path.variable.maven_repository}/rhino/js/1.7R2/js-1.7R2.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="forms-*.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_newrtp.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.newrtp" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.newrtp" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>

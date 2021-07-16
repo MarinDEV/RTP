@@ -1,0 +1,11 @@
+name: RandomTP
+version: ${project.version}
+main: me.marindev.newrtp.CommandsManager
+api-version: 1.16
+authors: [MarinDEV]
+depend: [WorldGuard,WorldEdit]
+softdepend: [CustomMobs]
+description: Randomly teleports players in the map.
+
+commands:
+  rtp:

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_newrtp" default="compile.module.newrtp">
+  <dirname property="module.newrtp.basedir" file="${ant.file.module_newrtp}"/>
+  
+  <property name="module.jdk.home.newrtp" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.newrtp" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.newrtp" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.newrtp" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="newrtp.output.dir" value="${module.newrtp.basedir}/target/classes"/>
+  <property name="newrtp.testoutput.dir" value="${module.newrtp.basedir}/target/test-classes"/>
+  
+  <path id="newrtp.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="newrtp.module.production.classpath">
+    <path refid="${module.jdk.classpath.newrtp}"/>
+    <path refid="library.maven:_com.sk89q.worldguard:worldguard-bukkit:7.0.0.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldguard:worldguard-core:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_com.destroystokyo.paper:paper-api:1.15.2-r0.1-snapshot.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.6.classpath"/>
+    <path refid="library.maven:_com.googlecode.json-simple:json-simple:1.1.1.classpath"/>
+    <path refid="library.maven:_junit:junit:4.10.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.1.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:21.0.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.8.0.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-chat:1.15-snapshot.classpath"/>
+    <path refid="library.maven:_org.yaml:snakeyaml:1.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm:7.3.1.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm-commons:7.3.1.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm-tree:7.3.1.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm-analysis:7.3.1.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldedit:worldedit-core:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldedit.worldedit-libs:core:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_de.schlichtherle:truezip:6.8.3.classpath"/>
+    <path refid="library.maven:_rhino:js:1.7r2.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldedit:worldedit-bukkit:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldedit.worldedit-libs:bukkit:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_org.bukkit:bukkit:1.13.2-r0.1-snapshot.classpath"/>
+  </path>
+  
+  <path id="newrtp.runtime.production.module.classpath">
+    <pathelement location="${newrtp.output.dir}"/>
+    <path refid="library.maven:_com.sk89q.worldguard:worldguard-bukkit:7.0.0.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldguard:worldguard-core:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_com.sk89q.intake:intake:4.2-snapshot.classpath"/>
+    <path refid="library.maven:_com.sk89q:squirrelid:0.2.0.classpath"/>
+    <path refid="library.maven:_org.flywaydb:flyway-core:3.0.classpath"/>
+    <path refid="library.maven:_org.khelekore:prtree:1.5.0.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.6.classpath"/>
+    <path refid="library.maven:_com.googlecode.json-simple:json-simple:1.1.1.classpath"/>
+    <path refid="library.maven:_junit:junit:4.10.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.1.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:21.0.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.8.0.classpath"/>
+    <path refid="library.maven:_org.yaml:snakeyaml:1.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldedit:worldedit-core:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldedit.worldedit-libs:core:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_de.schlichtherle:truezip:6.8.3.classpath"/>
+    <path refid="library.maven:_rhino:js:1.7r2.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldedit:worldedit-bukkit:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldedit.worldedit-libs:bukkit:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_org.bukkit:bukkit:1.13.2-r0.1-snapshot.classpath"/>
+    <path refid="library.maven:_io.papermc:paperlib:1.0.2.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-slf4j-impl:2.8.1.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.8.1.classpath"/>
+    <path refid="library.maven:_org.bstats:bstats-bukkit:1.4.classpath"/>
+  </path>
+  
+  <path id="newrtp.module.classpath">
+    <path refid="${module.jdk.classpath.newrtp}"/>
+    <pathelement location="${newrtp.output.dir}"/>
+    <path refid="library.maven:_com.sk89q.worldguard:worldguard-bukkit:7.0.0.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldguard:worldguard-core:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_com.sk89q.intake:intake:4.2-snapshot.classpath"/>
+    <path refid="library.maven:_com.sk89q:squirrelid:0.2.0.classpath"/>
+    <path refid="library.maven:_org.flywaydb:flyway-core:3.0.classpath"/>
+    <path refid="library.maven:_org.khelekore:prtree:1.5.0.classpath"/>
+    <path refid="library.maven:_com.destroystokyo.paper:paper-api:1.15.2-r0.1-snapshot.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.6.classpath"/>
+    <path refid="library.maven:_com.googlecode.json-simple:json-simple:1.1.1.classpath"/>
+    <path refid="library.maven:_junit:junit:4.10.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.1.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:21.0.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.8.0.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-chat:1.15-snapshot.classpath"/>
+    <path refid="library.maven:_org.yaml:snakeyaml:1.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm:7.3.1.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm-commons:7.3.1.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm-tree:7.3.1.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm-analysis:7.3.1.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldedit:worldedit-core:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldedit.worldedit-libs:core:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_de.schlichtherle:truezip:6.8.3.classpath"/>
+    <path refid="library.maven:_rhino:js:1.7r2.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldedit:worldedit-bukkit:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldedit.worldedit-libs:bukkit:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_org.bukkit:bukkit:1.13.2-r0.1-snapshot.classpath"/>
+    <path refid="library.maven:_io.papermc:paperlib:1.0.2.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-slf4j-impl:2.8.1.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.8.1.classpath"/>
+    <path refid="library.maven:_org.bstats:bstats-bukkit:1.4.classpath"/>
+  </path>
+  
+  <path id="newrtp.runtime.module.classpath">
+    <pathelement location="${newrtp.testoutput.dir}"/>
+    <pathelement location="${newrtp.output.dir}"/>
+    <path refid="library.maven:_com.sk89q.worldguard:worldguard-bukkit:7.0.0.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldguard:worldguard-core:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_com.sk89q.intake:intake:4.2-snapshot.classpath"/>
+    <path refid="library.maven:_com.sk89q:squirrelid:0.2.0.classpath"/>
+    <path refid="library.maven:_org.flywaydb:flyway-core:3.0.classpath"/>
+    <path refid="library.maven:_org.khelekore:prtree:1.5.0.classpath"/>
+    <path refid="library.maven:_com.destroystokyo.paper:paper-api:1.15.2-r0.1-snapshot.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.6.classpath"/>
+    <path refid="library.maven:_com.googlecode.json-simple:json-simple:1.1.1.classpath"/>
+    <path refid="library.maven:_junit:junit:4.10.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.1.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:21.0.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.8.0.classpath"/>
+    <path refid="library.maven:_net.md-5:bungeecord-chat:1.15-snapshot.classpath"/>
+    <path refid="library.maven:_org.yaml:snakeyaml:1.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm:7.3.1.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm-commons:7.3.1.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm-tree:7.3.1.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm-analysis:7.3.1.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldedit:worldedit-core:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldedit.worldedit-libs:core:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_de.schlichtherle:truezip:6.8.3.classpath"/>
+    <path refid="library.maven:_rhino:js:1.7r2.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldedit:worldedit-bukkit:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_com.sk89q.worldedit.worldedit-libs:bukkit:7.0.0-snapshot.classpath"/>
+    <path refid="library.maven:_org.bukkit:bukkit:1.13.2-r0.1-snapshot.classpath"/>
+    <path refid="library.maven:_io.papermc:paperlib:1.0.2.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-slf4j-impl:2.8.1.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.8.1.classpath"/>
+    <path refid="library.maven:_org.bstats:bstats-bukkit:1.4.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.newrtp">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.newrtp">
+    <patternset refid="excluded.from.module.newrtp"/>
+  </patternset>
+  
+  <path id="newrtp.module.sourcepath">
+    <dirset dir="${module.newrtp.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="newrtp.module.test.sourcepath">
+    <dirset dir="${module.newrtp.basedir}">
+      <include name="src/test/java"/>
+      <include name="src/test/resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.newrtp" depends="compile.module.newrtp.production,compile.module.newrtp.tests" description="Compile module newRTP"/>
+  
+  <target name="compile.module.newrtp.production" depends="register.custom.compilers" description="Compile module newRTP; production classes">
+    <mkdir dir="${newrtp.output.dir}"/>
+    <javac2 destdir="${newrtp.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.newrtp}/javac">
+      <compilerarg line="${compiler.args.newrtp}"/>
+      <bootclasspath refid="newrtp.module.bootclasspath"/>
+      <classpath refid="newrtp.module.production.classpath"/>
+      <src refid="newrtp.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.newrtp"/>
+    </javac2>
+    
+    <copy todir="${newrtp.output.dir}">
+      <fileset dir="${module.newrtp.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.newrtp.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.newrtp.tests" depends="register.custom.compilers,compile.module.newrtp.production" description="compile module newRTP; test classes" unless="skip.tests">
+    <mkdir dir="${newrtp.testoutput.dir}"/>
+    <javac2 destdir="${newrtp.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.newrtp}/javac">
+      <compilerarg line="${compiler.args.newrtp}"/>
+      <bootclasspath refid="newrtp.module.bootclasspath"/>
+      <classpath refid="newrtp.module.classpath"/>
+      <src refid="newrtp.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.newrtp"/>
+    </javac2>
+    
+    <copy todir="${newrtp.testoutput.dir}">
+      <fileset dir="${module.newrtp.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.newrtp.basedir}/src/test/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.newrtp" description="cleanup module">
+    <delete dir="${newrtp.output.dir}"/>
+    <delete dir="${newrtp.testoutput.dir}"/>
+  </target>
+</project>
